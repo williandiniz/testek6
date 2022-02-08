@@ -1,5 +1,4 @@
-FROM ubuntu:latest
-
+FROM php:latest
 
 # Copy and Work dir
-RUN touch /tmp/will.txt
+COPY /opt/app-root/src /var/www/html/
