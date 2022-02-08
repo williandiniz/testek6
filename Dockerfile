@@ -1,4 +1,4 @@
-FROM FROM docker.io/httpd as builder
+FROM docker.io/httpd as builder
 
 
 # Copy and Work dir
