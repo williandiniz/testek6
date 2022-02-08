@@ -1,4 +1,4 @@
-FROM FROM ubuntu:latest
+FROM ubuntu:latest
 
 
 # Copy and Work dir
