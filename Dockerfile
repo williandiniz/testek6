@@ -1,4 +1,4 @@
-FROM docker pull ubuntu
+FROM loadimpact/k6
 
 RUN apt get update
 RUN apt get upgrade
