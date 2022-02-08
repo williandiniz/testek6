@@ -4,6 +4,7 @@ FROM debian:latest
 # define o mantenedor da imagem
 LABEL maintainer="Willian Diniz"
 
+USER root
 # Atualiza a imagem com os pacotes
 RUN apt-get update && apt-get upgrade -y
 
