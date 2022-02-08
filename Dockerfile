@@ -1,9 +1,8 @@
-FROM golang:1-alpine AS builder
-RUN apk --no-cache add --virtual .build-deps git make build-base
-RUN go get "github.com/loadimpact/k6"
-WORKDIR $GOPATH/src/github.com/loadimpact/k6
-ADD . .
-RUN go get . && CGO_ENABLED=0 go install -a -ldflags '-s -w'
-
-FROM alpine:3.9
-COPY --from=builder /go/bin/k6 /usr/bin/k6
+FROM loadimpact/k6
+RUN apk add --no-cache ca-certificates
+RUN cp /go/bin/k6 /usr/bin/k6 && \ #FAILS in either case
+mkdir /k6-tests
+ADD src/ /k6-tests/
+WORKDIR /k6-tests
+ENTRYPOINT [“k6”]
+CMD [“run”, “index.js”]
